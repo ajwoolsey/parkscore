@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <title>Visualizing Barriers to Park Access</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Kanit', serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="headerwrapper">
+      <div class='header'>
+       <h1>Visualizing the Barriers to Park Access</h1>
+
+       <h4>This project seeks to address the issue of park access inequity in cities from a lens of structural racism in urban planning 
+        and “people-oriented city design”-transit development that services urban community needs over vehicle infrastructure <sup>4</sup>. 
+        Non-profit Trust for the Public Land (TPL) has an indexed ranking of park access in American cities called “ParkScore”. ParkScore uses metrics
+        including total park acreage, investment, amenities, access, and equity-sourced from US Census demographic data- 
+        to develop an aggregated park access ranking of America’s top 100 cities. In 2022, Washington, DC was 
+        designated the most equitable US city in terms of park access with a ParkScore of 84.9, with Mesa, AZ declared the least equitable
+        with a score of 31.9 <sup>5</sup>. By comparing the most and the least park equitable cities in the United States, this project hopes to 
+        showcase park access inequalities as an issue of inequitable urban infrastructure. </h4> 
+
+
+  <div class= 'map header'>
+    <h4>The below maps show the geographic proximity of people-oriented city infrastructure- bike lanes, metro lines, and bus stations- 
+      to parks and urban green spaces in Mesa, AZ and Washington, DC. Geographic data for DC bus routes, bike lanes, 
+      metro routes, and green spaces were sourced from Open Data DC<sup>7,8,9,10</sup>.
+      Geographic data for Mesa light rail route and bus stop locations were sourced from Valley Metro Open Data<sup>11,12</sup>, bike lane data from
+      City of Mesa ArcGIS Online<sup>13</sup>, and park data from City of Mesa Park Finder<sup>14</sup>. With regards to public transit, DC's 
+      urban infrastructure is far more people-oriented than Mesa's, with a rapid rail transit system and a comprehensive network of public bus stations
+      that within proximity of green spaces; particularly in the northwestern quadrant of the city. </h4>  
+  </div>
+  <div class="mapdescription">
+      <h2>Please select the below checkboxes to explore the geographic relationship between transit infrastructure and access to green space. </h2></div>
+  <!--legend for map with checkboxes-->
+  <div class="checklegend">
+    <input type="checkbox" id="bikepath" name="bikepath" value="BikePath" onchange="toggleBikePath()" checked>
+    <label for="bikepath"> Bike Path</label>
+    <input type="checkbox" id="busStop" name="busStop" value="busStop" onchange="toggleBusstop()" checked>
+    <label for="busStop"> Bus Stop</label>
+    <input type="checkbox" id="parks" name="parks" value="parks" onchange="toggleParks()" checked>
+    <label for="parks">Parks<sup>*</sup></label>
+    <input type="checkbox" id="lightrail" name="lightrail" value="lightrail" onchange="toggleLightRail()" checked>
+    <label for="metroline"> Light Rail/Metro<sup>**</sup></label>
+  </div>
+<!--creating wrapper ids for both cities so header is different for both maps-->
+    <div class='cities'>
+         <div class='citywrapper'>
+          <p>MESA, AZ</p>
+           <div id='mesa'></div>
+         </div>
+         <div class='citywrapper'>
+          <p>WASHINGTON, DC</p> 
+           <div id='dc'></div>
+          </div>
+        </div>
+      </div>
+      <!--div class for map notes-->
+  <div class= 'note'>
+      <sup>*</sup> City of Mesa GIS did not have a publicly available geographic shp file for green spaces, so the coordinates and acreage 
+      of each park
+      had to be used instead. <br>
+      <sup>**</sup>Mesa, AZ has a light rail system while Washington, DC has a rapid rail system. 
+      Light rail systems typically use small trains powered by overhead electrical wires, and have a 
+      lower passenger capacity and speed as compared to heavy rail or rapid transit rail systems.<sup>15</sup>
+    </div>
+  <div class="citationsheader">
+    Citations
+  </div>
+  <div class="row">
+    <div class='column'>
+          1. Stevens H. 'nature is the great equalizer': A black couple's road trip discovering the National Parks. Chicago Tribune. 
+          https://www.chicagotribune.com/columns/heidi-stevens/ct-black-visitors-national-parks-balancing-1120-20161117-column.html. 
+          Published May 16, 2019. <br>
+          2. Twohig-Bennett C, Jones A. The health benefits of the Great Outdoors: A systematic review and meta-analysis of greenspace exposure and health outcomes. 
+          Environmental Research. 2018;166:628-637. doi:10.1016/j.envres.2018.06.030 <br>
+          3. Parks and an equitable recovery. Trust for Public Land. https://www.tpl.org/parks-and-an-equitable-recovery-parkscore-report. Published September 13, 2022. <br>
+          4. People-Oriented Cities: Three Keys to Quality Public Transport. Smart Cities Dive. https://www.smartcitiesdive.com/ex/sustainablecitiescollective/people-oriented-cities-three-keys-quality-public-transport/256151/. <br>
+          5. Parkscore Home. Trust for Public Land. https://www.tpl.org/parkscore. Published February 20, 2023. <br>
+          6. Cities and Neighborhooods. Walk Score. https://www.walkscore.com/cities-and-neighborhoods/. <br>
+        </div>
+    <div class= 'column'>
+          7. Metro Bus Stops. Open Data DC. https://opendata.dc.gov/datasets/DCGIS::metro-bus-stops/explore. <br>
+          8. Bicycle lanes. Open Data DC. https://opendata.dc.gov/datasets/bicycle-lanes/explore. <br>
+          9. Metro Lines Regional. ArcGIS Hub. https://hub.arcgis.com/datasets/ead6291a71874bf8ba332d135036fbda/explore. <br>
+          10. Parks and recreation areas. Open Data DC. https://opendata.dc.gov/datasets/DCGIS::parks-and-recreation-areas/explore?location=38.902585%25. <br>
+          11. Busstops. Valley Metro GeoCenter. https://geocenter-valleymetro.opendata.arcgis.com/maps/busstops. <br>
+          12. Valley Metro Light Rail. Valley Metro GeoCenter. https://geocenter-valleymetro.opendata.arcgis.com/datasets/ValleyMetro::valley-metro-light-rail/explore. <br>
+          13. Bikepaths. City of Mesa GIS. https://opengis.mesaaz.gov/datasets/MesaAZ::bikepaths/explore. <br>
+          14. Mesa Park Finder. City of Mesa GIS. https://gis.mesaaz.gov/parkfinder/. <br>
+          15.TransitBy Matt Johnson (Editorial Board Alum) April 4 2019. Light rail? heavy rail? subway? rail transit modes fall on a Continuum. Greater Greater Washington. https://ggwash.org/view/71583/light-rail-heavy-rail-subway-rail-transit-modes-fall-on-a-continuum. Published April 4, 2019. <br>
+        </div>
+    </div>
+  </div>
+  </body>
+  <footer>
+    <script src="../lib/d3.js"></script>
+    <script src="main.js"></script>
+    <script src="../dc/main.js"></script></footer>
+</html>
