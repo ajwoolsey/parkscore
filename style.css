@@ -1,0 +1,114 @@
+.headerwrapper {
+  display: inline-block;
+  flex-wrap: wrap;
+}
+
+.note {
+  font-size: small;
+  padding-bottom: 5%;
+  display: block;
+}
+.row {
+  display: flex;
+  font-size: smaller;
+}
+
+.column {
+  flex: 50%
+}
+
+.row:after {
+  display: table;
+}
+
+.citationsheader {
+  font-size: medium;
+  font-weight: bold;
+  display: block;
+}
+
+body {
+    font-size: 16px;
+    padding: 5px;
+    background-color: black;
+    color: white;
+    }
+.mapdescription {
+  font-size: large;
+}
+    
+  .cities {
+  /*to make both maps next to each other*/
+    display: flex;
+    align-content:center
+  }
+
+  /* .scatterwrapper {
+    display: flex;
+    padding-top: 2%;
+    padding-bottom: 5%;
+  }
+  #walkscore {
+    padding-right: 5%;
+    padding-left: 2%;
+  }
+
+  #transitscore {
+    padding-right: 5%;
+  }
+
+  #bikescore {
+    padding-left: 2%;
+  } */
+
+  .citywrapper {
+    color: white;
+    padding-top: 2%;
+    padding-bottom: 5%;
+    font-size: 25px;
+    font-weight: light;
+    text-align: center;
+    display: block;
+
+  }
+h4 {
+  color: white;
+  font-size: 18px;
+}
+h2 {
+  color:white;
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 2%;
+}
+  p {
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+  }
+
+.header {
+  display: inline-block;
+  flex:8;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.headerwrapper {
+  display: flex;
+}
+  h1 {
+    font-size: 2em;
+    margin: 0.25em 0;
+  }
+  
+  h3 {
+    font-size: 2em;
+    color: white;
+    margin: 0.25em 0;
+    padding: 0;
+  }
+  
+  path.state {
+    stroke: black;
+  }
