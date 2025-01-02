@@ -1,4 +1,4 @@
-#Visualizing the Barriers to Park Access
+# Visualizing the Barriers to Park Access
 
 This project investigates the relationship between public transportation access and park accessibility by visually comparing two metropolitan cities in the United States. According to Trust for the Public Land's 2022 "Park Score" ranking, Mesa, AZ is the least park accessible city in the country, and Washington, DC is ranked as the most park accessible. These rankings include metrics such as total park acreage across the city, financial investment into parks, amenities, access, and equity from US demographic data.
 
