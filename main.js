@@ -1,176 +1,283 @@
+// Global variables for checkbox states
+let showBikePath = true;
+let showBusStop = true;
+let showParks = true;
+let showLightRail = true;
 
-  
+// Global variables for SVGs
+let mesaSvg, dcSvg;
 
-//Have to do init function for the checkbox legend
-var showBikePath = true
-var showBusStop = true
-var showParks = true
-var showLightRail = true
-
-function mesaInit() {
-  //Clear out and start over, prevents layers of SVGs to exist
-  
-
-
-//constants for Mesa Map
-const width = window.innerWidth * 0.45,
-  height = window.innerHeight * 0.7,
-  margin = { top: 20, bottom: 50, left: 60, right: 40 };
-  
-headersvg= d3
-  .select('#header')
-  .append('svg')
-  .attr('width', 600)
-  .attr('height', 48);
-/**
- * LOAD DATA
- * Using a Promise.all([]), we can load more than one dataset at a time
- * loading geographic data for Mesa
- * */
-Promise.all([
-  d3.json("../data/MesaCensusTracts.json"),
-  d3.json("../data/BikePaths.json"),
-  d3.json("../data/LightRailLine.json"),
-  d3.csv("../data/Valley_Metro_Bus_Stops.csv", d3.autoType),
-  d3.csv("../data/MesaParks_Locations_And_Amenities.csv", d3.autoType),
-]).then(([geojson, BikePaths, RailLine, ValleyBus, MesaParks]) => {
-  
-
-// create an svg element for ParkScore WalkScore scatterplot
-//"svg" is for mesa map only, every other svg has to be unique
-  svg = d3
-    .select("#mesa")
-    .append("svg")
-    .attr("width", width)
-    .attr("height", height);
-    
-//making background color black
-    svg.append("rect")
-    .attr("width", "100%")
-    .attr("height", "100%")
-    .attr("fill", "black");
-
-
-  // SPECIFY PROJECTION
-  // a projection maps from lat/long -> x/y values
-  // so it works a lot like a scale
-  const projection = d3.geoAlbersUsa()
-    .fitSize([
-      width - margin.left - margin.right,
-      height - margin.top - margin.bottom
-    ], geojson);
-
-  // DEFINE PATH FUNCTION
-  const path = d3.geoPath(projection)
-
-
-//Draw path for Mesa Bike Lanes
-
-if(showBikePath) {
-  svg.selectAll("path.lanes")
-  .data(BikePaths.features)
-  .join("path")
-  .attr("class", 'lanes')
-  .attr("stroke", '#e75480')
-  .attr('stroke-width', 1.5)
-  .attr("fill", "transparent")
-  .attr("d", path)
+// Function to initialize both maps
+function initMaps() {
+    if (!mesaSvg) mesaInit();
+    if (!dcSvg) dcInit();
+    updateMaps();
 }
 
-
-
-//Draw path for Mesa Light Rail
-if(showLightRail) {
-svg.selectAll("path.rail")
-    .data(RailLine.features)
-    .join("path")
-    .attr("class", 'rail')
-    .attr("stroke", 'white')
-    .attr("stroke-width", 2)
-    .attr("fill", "transparent")
-    .attr("d", path)
-}
-//Draw circle for each Mesa bus station
-  if(showBusStop)   {
-  svg.selectAll("circle.ValleyBus")
-    .data(ValleyBus)
-    .join("circle")
-    .attr("r", 1.5)
-    .attr("fill", '#eed467')
-    .attr("transform", d=> {
-        // use our projection to go from lat/long => x/y
-        const coords = projection([d.Long, d.Lat])
-        // console.log(coords)
-        //console log shows that x=0 and y=1
-        if (coords[0] && coords[1]) {
-          return `translate(${coords[0]}, ${coords[1]})`}
-
-    })
-  }
-    //creating sizeScale for UGS
-    const sizeScale= d3.scaleSqrt()
-    //
-    .domain([d3.min(MesaParks.map(d => d.NumberofAcres)), d3.max(MesaParks.map(d => d.NumberofAcres))])
-    //smallest to largest dot radius
-    .range([1, 15])
-
-//Size scale for each park
-  if(showParks) { 
-    svg.selectAll("circle.MesaParks_Locations_And_Amenities")
-    .data(MesaParks)
-    .join("circle")
-    .attr("r", function (d) { ; return sizeScale(d.NumberofAcres)})
-    .attr("opacity", 1)
-    .attr("fill", "green")
-    .attr("transform", d=> {
-        // use our projection to go from lat/long => x/y
-        const coords = projection([d.Longitude, d.Latitude])
-        // console.log(coords)
-        //can't read coords if coords is null, have to change to coords && coords[0]
-        if (coords && coords[0] && coords[1]) {
-          return `translate(${coords[0]}, ${coords[1]})`}
-
-     
-  })
+// Function to update both maps
+function updateMaps() {
+    updateMesaMap();
+    updateDcMap();
 }
 
-})
-
-}
-mesaInit()
-
-//Using toggleBikPath function to show geographic data when clicked
+// Functions to toggle map features
 function toggleBikePath() {
-  document.getElementById('mesa').innerHTML = ""
-  document.getElementById('dc').innerHTML = ""
-  showBikePath = !showBikePath
-  mesaInit()
-  dcInit() 
-} 
-
+    showBikePath = !showBikePath;
+    updateMaps();
+}
 
 function toggleBusstop() {
-  document.getElementById('mesa').innerHTML = ""
-  document.getElementById('dc').innerHTML = ""
-  showBusStop = !showBusStop
-  mesaInit()
-  dcInit()
-} 
+    showBusStop = !showBusStop;
+    updateMaps();
+}
 
 function toggleParks() {
-  document.getElementById('mesa').innerHTML = ""
-  document.getElementById('dc').innerHTML = ""
-  showParks = !showParks
-  mesaInit()
-  dcInit()
-} 
+    showParks = !showParks;
+    updateMaps();
+}
 
 function toggleLightRail() {
-  document.getElementById('mesa').innerHTML = ""
-  document.getElementById('dc').innerHTML = ""
-  showLightRail = !showLightRail
-  mesaInit()
-  dcInit()
-} 
+    showLightRail = !showLightRail;
+    updateMaps();
+}
 
+// Call initMaps when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', initMaps);
 
+function mesaInit() {
+    // Constants for Mesa Map
+    const width = window.innerWidth * 0.45,
+          height = window.innerHeight * 0.7,
+          margin = { top: 20, bottom: 50, left: 60, right: 40 };
+
+    // Clear existing SVG
+    d3.select("#mesa").selectAll("*").remove();
+
+    // Create new SVG
+    mesaSvg = d3.select("#mesa")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    // Add black background
+    mesaSvg.append("rect")
+        .attr("width", "100%")
+        .attr("height", "100%")
+        .attr("fill", "black");
+
+    // Load data and create initial map
+    Promise.all([
+        d3.json("../data/MesaCensusTracts.json"),
+        d3.json("../data/BikePaths.json"),
+        d3.json("../data/LightRailLine.json"),
+        d3.csv("../data/Valley_Metro_Bus_Stops.csv", d3.autoType),
+        d3.csv("../data/MesaParks_Locations_And_Amenities.csv", d3.autoType),
+    ]).then(([geojson, BikePaths, RailLine, ValleyBus, MesaParks]) => {
+        // Store data globally
+        mesaData = {geojson, BikePaths, RailLine, ValleyBus, MesaParks};
+        
+        // Create projection
+        const projection = d3.geoAlbersUsa()
+            .fitSize([
+                width - margin.left - margin.right,
+                height - margin.top - margin.bottom
+            ], geojson);
+
+        // Create path generator
+        mesaPath = d3.geoPath(projection);
+
+        // Draw initial map
+        updateMesaMap();
+    });
+}
+
+function updateMesaMap() {
+    if (!mesaSvg || !mesaData) return;
+
+    const {BikePaths, RailLine, ValleyBus, MesaParks} = mesaData;
+
+    // Update bike paths
+    const bikePaths = mesaSvg.selectAll("path.lanes")
+        .data(showBikePath ? BikePaths.features : []);
+    
+    bikePaths.enter()
+        .append("path")
+        .attr("class", 'lanes')
+        .merge(bikePaths)
+        .attr("stroke", '#e75480')
+        .attr('stroke-width', 1.5)
+        .attr("fill", "transparent")
+        .attr("d", mesaPath);
+    
+    bikePaths.exit().remove();
+
+    // Update light rail
+    const lightRail = mesaSvg.selectAll("path.rail")
+        .data(showLightRail ? RailLine.features : []);
+    
+    lightRail.enter()
+        .append("path")
+        .attr("class", 'rail')
+        .merge(lightRail)
+        .attr("stroke", 'white')
+        .attr("stroke-width", 2)
+        .attr("fill", "transparent")
+        .attr("d", mesaPath);
+    
+    lightRail.exit().remove();
+
+    // Update bus stops
+    const busStops = mesaSvg.selectAll("circle.ValleyBus")
+        .data(showBusStop ? ValleyBus : []);
+    
+    busStops.enter()
+        .append("circle")
+        .attr("class", "ValleyBus")
+        .merge(busStops)
+        .attr("r", 1.5)
+        .attr("fill", '#eed467')
+        .attr("transform", d => {
+            const coords = mesaPath.projection()([d.Long, d.Lat]);
+            return coords ? `translate(${coords[0]}, ${coords[1]})` : null;
+        });
+    
+    busStops.exit().remove();
+
+    // Update parks
+    const sizeScale = d3.scaleSqrt()
+        .domain([d3.min(MesaParks, d => d.NumberofAcres), d3.max(MesaParks, d => d.NumberofAcres)])
+        .range([1, 15]);
+
+    const parks = mesaSvg.selectAll("circle.MesaParks")
+        .data(showParks ? MesaParks : []);
+    
+    parks.enter()
+        .append("circle")
+        .attr("class", "MesaParks")
+        .merge(parks)
+        .attr("r", d => sizeScale(d.NumberofAcres))
+        .attr("opacity", 1)
+        .attr("fill", "green")
+        .attr("transform", d => {
+            const coords = mesaPath.projection()([d.Longitude, d.Latitude]);
+            return coords ? `translate(${coords[0]}, ${coords[1]})` : null;
+        });
+    
+    parks.exit().remove();
+}
+
+function dcInit() {
+    // Constants for DC Map
+    const width = window.innerWidth * 0.45,
+          height = window.innerHeight * 0.7,
+          margin = { top: 20, bottom: 50, left: 60, right: 40 };
+
+    // Clear existing SVG
+    d3.select("#dc").selectAll("*").remove();
+
+    // Create new SVG
+    dcSvg = d3.select("#dc")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    // Add black background
+    dcSvg.append("rect")
+        .attr("width", "100%")
+        .attr("height", "100%")
+        .attr("fill", "black");
+
+    // Load data and create initial map
+    Promise.all([
+        d3.json("../data/Bicycle_Lanes.json"),
+        d3.json("../data/Metro_Lines_Regional.json"),
+        d3.json("../data/DCNational_Parks.json"),
+        d3.csv("../data/Metro_Bus_Stops.csv", d3.autoType),
+    ]).then(([BikeLanes, MetroLines, DCNationalParks, MetroBus]) => {
+        // Store data globally
+        dcData = {BikeLanes, MetroLines, DCNationalParks, MetroBus};
+        
+        // Create projection
+        const projection = d3.geoAlbersUsa()
+            .fitSize([
+                width - margin.left - margin.right,
+                height - margin.top - margin.bottom
+            ], BikeLanes);
+
+        // Create path generator
+        dcPath = d3.geoPath(projection);
+
+        // Draw initial map
+        updateDcMap();
+    });
+}
+
+function updateDcMap() {
+    if (!dcSvg || !dcData) return;
+
+    const {BikeLanes, MetroLines, DCNationalParks, MetroBus} = dcData;
+
+    // Update bike lanes
+    const bikeLanes = dcSvg.selectAll("path.lanes")
+        .data(showBikePath ? BikeLanes.features : []);
+    
+    bikeLanes.enter()
+        .append("path")
+        .attr("class", 'lanes')
+        .merge(bikeLanes)
+        .attr('stroke-width', 1.5)
+        .attr("stroke", "#e75480")
+        .attr("fill", "transparent")
+        .attr("d", dcPath);
+    
+    bikeLanes.exit().remove();
+
+    // Update metro lines
+    const metroLines = dcSvg.selectAll("path.lines")
+        .data(showLightRail ? MetroLines.geometries : []);
+    
+    metroLines.enter()
+        .append("path")
+        .attr("class", 'lines')
+        .merge(metroLines)
+        .attr("stroke", 'white')
+        .attr("opacity", 0.6)
+        .attr("fill", "transparent")
+        .attr('stroke-width', 2)
+        .attr("d", dcPath);
+    
+    metroLines.exit().remove();
+
+    // Update bus stops
+    const busStops = dcSvg.selectAll("circle.MetroBus")
+        .data(showBusStop ? MetroBus : []);
+    
+    busStops.enter()
+        .append("circle")
+        .attr("class", "MetroBus")
+        .merge(busStops)
+        .attr("r", 1)
+        .attr("fill", "yellow")
+        .attr("transform", d => {
+            const coords = dcPath.projection()([d.BSTP_LON, d.BSTP_LAT]);
+            return coords ? `translate(${coords[0]}, ${coords[1]})` : null;
+        });
+    
+    busStops.exit().remove();
+
+    // Update parks
+    const parks = dcSvg.selectAll("path.parks")
+        .data(showParks ? DCNationalParks.features : []);
+    
+    parks.enter()
+        .append("path")
+        .attr("class", 'parks')
+        .merge(parks)
+        .attr("stroke", "green")
+        .attr("opacity", .9)
+        .attr('stroke-width', 1.75)
+        .attr("fill", "transparent")
+        .attr("d", dcPath);
+    
+    parks.exit().remove();
+}

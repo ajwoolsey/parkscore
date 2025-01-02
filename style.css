@@ -14,8 +14,10 @@
 }
 
 .column {
-  flex: 50%
+  flex: 50%;
+  font-size: 1em
 }
+
 
 .row:after {
   display: table;
@@ -28,7 +30,6 @@
 }
 
 body {
-    font-size: 16px;
     padding: 5px;
     background-color: black;
     color: white;
@@ -36,12 +37,30 @@ body {
 .mapdescription {
   font-size: large;
 }
+.main {
+  font-size: 1.3em
+}
+
+.mapheader {
+  font-size: 1.7em;
+  font-weight: bold;
+  text-decoration: underline;
+  padding-bottom: 5px;
+}
+
+.mapdescription {
+  font-size: 1.3em;
+  font-weight: bold;
+}
     
   .cities {
   /*to make both maps next to each other*/
     display: flex;
     align-content:center
   }
+.checklegend{
+  font-size: 2em;
+}
 
   /* .scatterwrapper {
     display: flex;
