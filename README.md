@@ -4,6 +4,6 @@ This project investigates the relationship between public transportation access 
 
 To visually compare the two cities, this project visualizes shows the proximity of people-oriented transit infrastructure- bike lanes, metro lines, and bus stations- to parks and urban areas. Geographic data for DC bus routes, bike lanes, metro routes, and green spaces were sourced from Open Data DC7,8,9,10. Geographic data for Mesa light rail route and bus stop locations were sourced from Valley Metro Open Data11,12, bike lane data from City of Mesa ArcGIS Online13, and park data from City of Mesa Park Finder14. With regards to public transit, DC's urban infrastructure is far more people-oriented than Mesa's, with a rapid rail transit system and a comprehensive network of public bus stations that within proximity of green spaces; particularly in the northwestern quadrant of the city.
 
-This project was created using the JavaScript data visualization library d3.JS. To explore the visualization, please visit the link under the "About" tab.
+This project was created using the JavaScript data visualization library [D3.js](https://d3js.org/what-is-d3). To explore the visualization, please visit the link under the "About" tab.
 
 
