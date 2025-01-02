@@ -1,0 +1,94 @@
+﻿CityName,ParkScoreRating,WalkScore,TransitScore,BikeScore
+"Washington, DC",84.9,77,69,70
+"St. Paul, MN",79.7,60,46,64
+"Arlington, VA",79.1,71,59,72
+"Cincinnati, OH",78.9,49,44,36
+"Minneapolis, MN",78.6,71,55,83
+"Chicago, IL",76.8,77,65,72
+"San Francisco, CA",76.7,89,77,72
+"Irvine, CA",76.6,43,26,69
+"Seattle, WA",76.2,74,60,71
+"New York, NY",75.5,88,89,69
+"Portland, OR",74.5,67,49,83
+"Boston, MA",73.9,83,72,69
+"Madison, WI",71.3,50,35,66
+"St. Petersburg, FL",70.8,43,33,59
+"Plano, TX",68.0,41,15,52
+"Pittsburgh, PA",67.3,62,55,55
+"Spokane, WA",67.0,49,36,52
+"Denver, CO",66.7,61,45,72
+"St. Louis, MO",63.9,66,43,58
+"Henderson, NV",63.8,30,25,44
+"Kansas City, MO",63.3,35,25,35
+"Fremont, CA",62.4,50,36,54
+"Cleveland, OH",61.9,57,44,52
+"Lincoln, NE",61.3,44,24,59
+"Des Moines, IA",60.8,45,30,39
+"San Jose, CA",60.6,51,40,62
+"Atlanta, GA",60.2,48,44,42
+"Milwaukee, WI",60.0,62,49,58
+"San Diego, CA",59.8,53,37,43
+"Baltimore, MD",59.5,64,53,53
+"Sacramento, CA",59.3,49,34,67
+"Philadelphia, PA",59.1,75,67,67
+"Aurora, CO",59.0,43,35,53
+"Albuquerque, NM",58.4,43,29,61
+"Buffalo, NY",58.3,67,47,63
+"Jersey City, NJ",57.8,87,70,64
+"Boise, ID",57.3,89,47,99
+"New Orleans, LA",56.4,58,44,66
+"Austin, TX",55.9,42,35,54
+"Oakland, CA",55.9,75,57,65
+"Virginia Beach, VA",55.6,33,21,42
+"Long Beach, CA",55.6,73,49,70
+"Honolulu, HI",55.5,66,56,51
+"Las Vegas, NV",55.5,42,36,46
+"Omaha, NE",54.2,48,24,42
+"Newark, NJ",54.0,76,65,51
+"Miami, FL",53.6,77,57,64
+"Raleigh, NC",52.7,31,29,39
+"Norfolk, VA",52.7,46,36,47
+"Anchorage, AK",52.3,31,22,52
+"Dallas, TX",52.0,46,39,49
+"North Las Vegas, NV",51.6,34,33,48
+"Columbus, OH",51.3,41,30,48
+"Tulsa, OK",50.9,39,23,47
+"Detroit, MI",50.4,51,36,52
+"Colorado Springs, CO",49.9,36,19,45
+"San Antonio, TX",48.9,37,31,45
+"Lexington/Fayette, KY",48.7,34,27,46
+"Tampa, FL",48.7,50,31,55
+"Chesapeake, VA",47.5,21,14,35
+"Scottsdale, AZ",47.0,32,23,56
+"Anaheim, CA",46.9,56,34,52
+"Wichita, KS",46.3,35,20,44
+"Orlando, FL",45.8,41,33,57
+"Arlington, TX",43.6,38,0,40
+"Reno, NV",42.7,40,24,52
+"Houston, TX",42.3,47,36,49
+"Chandler, AZ",42.1,35,24,55
+"Tucson, AZ",41.7,43,35,66
+"Corpus Christi, TX",41.6,40,27,42
+"Riverside, CA",41.5,43,30,49
+"Stockton, CA",41.0,44,25,52
+"Los Angeles, CA",40.2,69,53,59
+"Chula Vista, CA",40.2,46,35,41
+"Jacksonville, FL",39.9,26,21,41
+"Durham, NC",39.8,30,28,38
+"Charlotte/Mecklenburg, NC",39.6,96,78,50
+"Phoenix, AZ",39.3,41,36,56
+"Bakersfield, CA",38.7,37,25,44
+"Fort Worth, TX",37.8,35,22,39
+"Nashville/Davidson, TN",37.8,29,22,30
+"Glendale, AZ",37.7,40,34,57
+"Gilbert, AZ",37.6,29,15,53
+"Louisville, KY",35.9,96,63,79
+"Lubbock, TX",35.8,39,21,43
+"Garland, TX",35.8,40,29,41
+"Memphis, TN",35.5,35,22,41
+"Hialeah, FL",35.1,68,39,51
+"Santa Ana, CA",34.9,67,43,62
+"Oklahoma City, OK",34.8,34,17,40
+"Fresno, CA",32.8,47,33,58
+"Mesa, AZ",31.9,38,27,60
+

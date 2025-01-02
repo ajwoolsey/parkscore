@@ -1,0 +1,93 @@
+﻿CityName,ParkScoreRating,TransitScore
+"Washington, DC",84.9,69
+"St. Paul, MN",79.7,46
+"Arlington, VA",79.1,59
+"Cincinnati, OH",78.9,44
+"Minneapolis, MN",78.6,55
+"Chicago, IL",76.8,65
+"San Francisco, CA",76.7,77
+"Irvine, CA",76.6,26
+"Seattle, WA",76.2,60
+"New York, NY",75.5,89
+"Portland, OR",74.5,49
+"Boston, MA",73.9,72
+"Madison, WI",71.3,35
+"St. Petersburg, FL",70.8,33
+"Plano, TX",68.0,15
+"Pittsburgh, PA",67.3,55
+"Spokane, WA",67.0,36
+"Denver, CO",66.7,45
+"St. Louis, MO",63.9,43
+"Henderson, NV",63.8,25
+"Kansas City, MO",63.3,25
+"Fremont, CA",62.4,36
+"Cleveland, OH",61.9,44
+"Lincoln, NE",61.3,24
+"Des Moines, IA",60.8,30
+"San Jose, CA",60.6,40
+"Atlanta, GA",60.2,44
+"Milwaukee, WI",60.0,49
+"San Diego, CA",59.8,37
+"Baltimore, MD",59.5,53
+"Sacramento, CA",59.3,34
+"Philadelphia, PA",59.1,67
+"Aurora, CO",59.0,35
+"Albuquerque, NM",58.4,29
+"Buffalo, NY",58.3,47
+"Jersey City, NJ",57.8,70
+"Boise, ID",57.3,47
+"New Orleans, LA",56.4,44
+"Austin, TX",55.9,35
+"Oakland, CA",55.9,57
+"Virginia Beach, VA",55.6,21
+"Long Beach, CA",55.6,49
+"Honolulu, HI",55.5,56
+"Las Vegas, NV",55.5,36
+"Omaha, NE",54.2,24
+"Newark, NJ",54.0,65
+"Miami, FL",53.6,57
+"Raleigh, NC",52.7,29
+"Norfolk, VA",52.7,36
+"Anchorage, AK",52.3,22
+"Dallas, TX",52.0,39
+"North Las Vegas, NV",51.6,33
+"Columbus, OH",51.3,30
+"Tulsa, OK",50.9,23
+"Detroit, MI",50.4,36
+"Colorado Springs, CO",49.9,19
+"San Antonio, TX",48.9,31
+"Lexington/Fayette, KY",48.7,27
+"Tampa, FL",48.7,31
+"Chesapeake, VA",47.5,14
+"Scottsdale, AZ",47.0,23
+"Anaheim, CA",46.9,34
+"Wichita, KS",46.3,20
+"Orlando, FL",45.8,33
+"Arlington, TX",43.6,0
+"Reno, NV",42.7,24
+"Houston, TX",42.3,36
+"Chandler, AZ",42.1,24
+"Tucson, AZ",41.7,35
+"Corpus Christi, TX",41.6,27
+"Riverside, CA",41.5,30
+"Stockton, CA",41.0,25
+"Los Angeles, CA",40.2,53
+"Chula Vista, CA",40.2,35
+"Jacksonville, FL",39.9,21
+"Durham, NC",39.8,28
+"Charlotte/Mecklenburg, NC",39.6,78
+"Phoenix, AZ",39.3,36
+"Bakersfield, CA",38.7,25
+"Fort Worth, TX",37.8,22
+"Nashville/Davidson, TN",37.8,22
+"Glendale, AZ",37.7,34
+"Gilbert, AZ",37.6,15
+"Louisville, KY",35.9,63
+"Lubbock, TX",35.8,21
+"Garland, TX",35.8,29
+"Memphis, TN",35.5,22
+"Hialeah, FL",35.1,39
+"Santa Ana, CA",34.9,43
+"Oklahoma City, OK",34.8,17
+"Fresno, CA",32.8,33
+"Mesa, AZ",31.9,27
