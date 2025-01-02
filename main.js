@@ -1,3 +1,8 @@
+document.addEventListener('DOMContentLoaded', function() {
+  // Your existing code here
+  initMaps();
+});
+
 // Global variables for checkbox states
 let showBikePath = true;
 let showBusStop = true;
@@ -6,6 +11,8 @@ let showLightRail = true;
 
 // Global variables for SVGs
 let mesaSvg, dcSvg;
+
+let mesaData, dcData;
 
 // Function to initialize both maps
 function initMaps() {
