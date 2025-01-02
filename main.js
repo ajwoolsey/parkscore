@@ -74,11 +74,11 @@ function mesaInit() {
 
     // Load data and create initial map
     Promise.all([
-        d3.json("/data/MesaCensusTracts.json"),
+        d3.json("data/MesaCensusTracts.json"),
         d3.json("data/BikePaths.json"),
-        d3.json("/data/LightRailLine.json"),
-        d3.csv("/data/Valley_Metro_Bus_Stops.csv", d3.autoType),
-        d3.csv("/data/MesaParks_Locations_And_Amenities.csv", d3.autoType),
+        d3.json("data/LightRailLine.json"),
+        d3.csv("data/Valley_Metro_Bus_Stops.csv", d3.autoType),
+        d3.csv("data/MesaParks_Locations_And_Amenities.csv", d3.autoType),
     ]).then(([geojson, BikePaths, RailLine, ValleyBus, MesaParks]) => {
         // Store data globally
         mesaData = {geojson, BikePaths, RailLine, ValleyBus, MesaParks};
@@ -196,10 +196,10 @@ function dcInit() {
 
     // Load data and create initial map
     Promise.all([
-        d3.json("/data/Bicycle_Lanes.json"),
-        d3.json("/data/Metro_Lines_Regional.json"),
-        d3.json("/data/DCNational_Parks.json"),
-        d3.csv("/data/Metro_Bus_Stops.csv", d3.autoType),
+        d3.json("data/Bicycle_Lanes.json"),
+        d3.json("data/Metro_Lines_Regional.json"),
+        d3.json("data/DCNational_Parks.json"),
+        d3.csv("data/Metro_Bus_Stops.csv", d3.autoType),
     ]).then(([BikeLanes, MetroLines, DCNationalParks, MetroBus]) => {
         // Store data globally
         dcData = {BikeLanes, MetroLines, DCNationalParks, MetroBus};
